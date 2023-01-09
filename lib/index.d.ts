@@ -6,6 +6,7 @@ import {
   Country,
 } from "react-native-country-picker-modal";
 import { CountryFilterProps } from "react-native-country-picker-modal/lib/CountryFilter";
+import { Mask } from "react-native-mask-input";
 export interface PhoneInputProps {
   withDarkTheme?: boolean;
   withShadow?: boolean;
@@ -22,6 +23,7 @@ export interface PhoneInputProps {
   renderDropdownImage?: JSX.Element;
   containerStyle?: StyleProp<ViewStyle>;
   textContainerStyle?: StyleProp<ViewStyle>;
+  mask?: Mask;
   textInputProps?: TextInputProps;
   textInputStyle?: StyleProp<TextStyle>;
   codeTextStyle?: StyleProp<TextStyle>;
@@ -299,9 +301,15 @@ export default class PhoneInput extends Component<
   getCallingCode: () => string | undefined;
   isValidNumber: (number: string) => boolean;
   onSelect: (country: Country) => void;
-  getNumberAfterPossiblyEliminatingZero: () => {number: string , formattedNumber: string };
+  getNumberAfterPossiblyEliminatingZero: () => {
+    number: string;
+    formattedNumber: string;
+  };
   onChangeText: (text: string) => void;
   render(): JSX.Element;
 }
 
-export function isValidNumber(number: string, countryCode: CountryCode ): boolean;
+export function isValidNumber(
+  number: string,
+  countryCode: CountryCode
+): boolean;
